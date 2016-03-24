@@ -47,6 +47,7 @@ import com.google.gwt.user.rebind.SourceWriter;
 import com.google.gwt.user.rebind.rpc.SerializableTypeOracle;
 import com.google.gwt.user.rebind.rpc.SerializableTypeOracleBuilder;
 import com.google.gwt.user.rebind.rpc.TypeSerializerCreator;
+import com.google.gwt.core.ext.linker.EmittedArtifact.Visibility;
 import org.atmosphere.gwt20.client.GwtRpcSerialTypes;
 
 import java.io.OutputStream;
@@ -131,7 +132,7 @@ public class SerializerGenerator extends IncrementalGenerator {
                 writer.close();
 
                 if (pathInfo != null) {
-                    context.commitResource(logger, pathInfo).setPrivate(true);
+                    context.commitResource(logger, pathInfo).setVisibility(Visibility.Private);
                 }
 
                 // Create the serializer
